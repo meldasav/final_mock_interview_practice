@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PracticeFinalMockInterview {
-
+    public static void main(String[] args) {
+        System.out.println("new commit");
+    }
 
     /*
    Write a method that takes 3 int arguments and returns the greatest number
