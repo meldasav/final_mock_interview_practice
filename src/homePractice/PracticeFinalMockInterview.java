@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PracticeFinalMockInterview {
-    public static void main(String[] args) {
-        System.out.println("new commit");
-    }
-
     /*
    Write a method that takes 3 int arguments and returns the greatest number
    NOTE: 2 or 3 numbers being same is okay
@@ -438,26 +434,33 @@ public class PracticeFinalMockInterview {
 
     }
 
-//    public static void removeDupFinal(int [] numbers) {
-//
-//        int lent = numbers.length;
-//
-//        for (int i = 0; i < lent - 1; i++) {
-//            for (int j = i + 1; j < lent; j++) {
-//                if (numbers[i] == numbers[j]) {
-//                    numbers[j] = numbers[lent - 1];
-//                    lent--;
-//                }
-//            }
-//        }
-//
-//    }
-//    public static void main(String[] args) {
-//
-//       removeDupFinal(new int[]{5,5,12,9,9,2,1});
-//
-//    }
-//}
+    public  static int[] removeDupFinal(int[] numbers) {
+        int lent = numbers.length;
+        for (int i = 0; i < lent - 1; i++) {
+            for (int j = i + 1; j < lent; j++) {
+                if (numbers[i] == numbers[j]) {
+                    numbers[j] = numbers[lent - 1];
+                    lent--;
+                }
+            }
+        }
+        int[] newArr=new int[lent];
+        for (int i = 0; i <lent ; i++) {
+            newArr[i]=numbers[i];
+
+        }
+        return newArr;
+    }
+
+
+    public static void main(String[] args) {
+
+      int[] numbers={5,12,9,9,2,1,5};
+        System.out.println(Arrays.toString(removeDupFinal(numbers)));
+
+
+    }
+
 
     public static String removeExtraSpace(String str) {
         String[] str1=str.trim().split(" ");
