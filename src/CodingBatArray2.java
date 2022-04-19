@@ -146,6 +146,9 @@ public class CodingBatArray2 {
         return result;
     }
 
+    /**
+     * HAS77
+     */
 
     public boolean has77(int[] nums) {
         boolean result = true;
@@ -166,13 +169,69 @@ public class CodingBatArray2 {
      */
 
     public boolean haveThree(int[] nums) {
-        boolean isThree = true;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 3 && nums[i + 1] != 3) {
-                isThree = false;
-                break;
+        int three = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 3 & nums[i + 1] == 3) return false;
+        }
+        for (int num : nums) {
+            if (num == 3) three++;
+        }
+        return three == 3;
+    }
+
+    /**
+     * TRIPLEUP
+     */
+    public boolean tripleUp(int[] nums) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i + 1] == nums[i] + 1 && nums[i + 2] == nums[i] + 2) {
+                return true;
             }
         }
-        return isThree;
+        return false;
+    }
+
+    /**
+     * TENRUN
+     */
+    public int[] tenRun(int[] nums) {
+        int change = 0;
+        boolean condition = false;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 10 == 0) {
+                condition = true;
+                change = nums[i];
+            }
+            if (condition) {
+                nums[i] = change;
+            }
+
+        }
+        return nums;
+    }
+
+    public int[] notAlone(int[] nums, int val) {
+        for (int i = 1; i < nums.length - 1; i++) {
+            if (nums[i] == val && nums[i - 1] != nums[i] && nums[i + 1] != nums[i]) {
+                nums[i] = Math.max(nums[i - 1], nums[i + 1]);
+            }
+        }
+        return nums;
+    }
+
+    public int[] zeroMax(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 0) {
+                int max = 0;
+                for (int j = i; j < nums.length; j++) {
+                    if (nums[j] % 2 != 0) {
+                        max = Math.max(nums[j], max);
+                    }
+                }
+                nums[i] = max;
+            }
+         }
+        return nums;
     }
 }
+
